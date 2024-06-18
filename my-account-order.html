@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="Anil z" name="author">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- SITE TITLE -->
+    <title>Coopcraft</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/linearicons.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/simple-line-icons.css">
+    <!--- owl carousel CSS-->
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.default.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- jquery-ui CSS -->
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .thing {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            float: left;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 3px;
+            margin-top: 5px;
+            clear: both;
+        }
+
+        .thing:after {
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            content: "";
+        }
+
+        .thing:active:after {
+            height: 0;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .rating_wrap .thing__text {
+            top: -3px;
+            right: 0;
+        }
+
+        .product_share .thing__text {
+            top: -3px;
+            left: 0;
+        }
+
+        .thing__text {
+            position: absolute;
+            text-align: center;
+            width: 32px;
+            padding-left: 4px;
+            height: 100%;
+            z-index: 99;
+            /**top: 0;
+  left: 0;**/
+            background-color: #34b99d;
+            border-radius: 3px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .thing__content {
+            position: relative;
+            height: inherit;
+        }
+
+        .thing__content:after,
+        .thing__content:before {
+            content: "";
+            display: none;
+            height: 100%;
+            position: absolute;
+            width: 6px;
+            z-index: -1;
+        }
+
+        .thing__content:after {
+            left: -6px;
+        }
+
+        .thing__content:before {
+            right: -6px;
+        }
+
+        .thing__content:hover {
+            z-index: 1000;
+        }
+
+        .thing__content:hover:after,
+        .thing__content:hover:before {
+            display: block;
+        }
+
+        .thing__content:hover .thing__text {
+            transition: 0s all ease-out;
+            transition-delay: 0s;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .thing__content:hover .thing__social {
+            width: 35px;
+            border-radius: 3px;
+            margin-left: 6px;
+            opacity: 1;
+        }
+
+        .thing__content:hover .thing__social--first {
+            margin-left: 0;
+        }
+
+        .thing__content:hover .thing__social:after {
+            opacity: 1;
+        }
+
+        .thing__content:hover .thing__social--facebook {
+            background-color: #496094;
+        }
+
+        .thing__content:hover .thing__social--twitter {
+            background-color: #4ac4f3;
+        }
+
+        .thing__content:hover .thing__social--linkedin {
+            background-color: #2388d6;
+        }
+
+        .thing__content:hover .thing__social--google {
+            background-color: #da4835;
+        }
+
+        .thing__social {
+            position: relative;
+            display: block;
+            height: 35px;
+            width: 35px;
+            float: left;
+            color: white;
+            background-color: #34b99d;
+            transition: all 0.15s ease-out;
+            opacity: 0;
+        }
+
+        .thing__social--first {
+            border-radius: 3px 0 0 3px;
+        }
+
+        .thing__social--last {
+            border-radius: 0 3px 3px 0;
+        }
+
+        .thing__social i {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 20px;
+            line-height: 35px;
+            content: "";
+            transition: 0.15s all ease-out;
+        }
+
+        /**
+.thing__social--facebook:after {
+  content: "";
+}
+.thing__social--twitter:after {
+  content: "";
+}
+.thing__social--linkedin:after {
+  content: "";
+}
+.thing__social--google:after {
+  content: "";
+}
+**/
+        .thing__text {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            /**text-indent: -5px;**/
+        }
+
+        .thing__social i {
+            font-size: 20px;
+        }
+    </style>
+    <style>
+        .breadcrumb_section .page-title h1 {
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            background: transparent !important;
+        }
+
+        .breadcrumb li {
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb li.breadcrumb-item:before {
+            color: #fff;
+        }
+
+        .breadcrumb li a,
+        .breadcrumb li.active {
+            color: #fff !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb_section {
+            background-image: url('images/breadcam-otherpagebanbg.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .breadcrumb_section:after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            width: 90%;
+            height: 70%;
+            background: #0000009e;
+            z-index: 1;
+        }
+
+        .section {
+            padding: 30px 0;
+        }
+
+        .mv-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 28px;
+            line-height: 2.3em;
+            margin: auto;
+            margin-top: 20px;
+            background: #000;
+            color: #fff;
+        }
+
+        .dashboard_content .card-header h3 {
+            font-size: 20px;
+        }
+
+        .dashboard_menu .nav-tabs li.nav-item a {
+            font-size: 16px;
+        }
+
+        .dashboard_content .table tbody tr td {
+            font-size: 15px;
+        }
+
+        address {
+            font-size: 16px;
+        }
+
+        .dashboard_content label {
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- LOADER -->
+    <div class="preloader">
+        <div class="lds-ellipsis"> <span></span> <span></span> <span></span> </div>
+    </div>
+    <!-- END LOADER --><!-- Home Popup Section --><!--<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">        <div class="modal-content">            <div class="modal-body">                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">                    <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>                </button>                <div class="row g-0">                    <div class="col-sm-5">                    	<div class="background_bg h-100" data-img-src="assets/images/popup_img.jpg"></div>                    </div>                   <div class="col-sm-7">                        <div class="popup_content">                            <div class="popup-text">                                <div class="heading_s1">                                    <h4>Subscribe and Get 25% Discount!</h4>                                </div>                                <p>Subscribe to the newsletter to receive updates about new products.</p>                            </div>                            <form method="post">                            	<div class="form-group mb-3">                                	<input name="email" required type="email" class="form-control rounded-0" placeholder="Enter Your Email">                                </div>                                <div class="form-group mb-3">
+                                	<button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="Subscribe" type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                            <div class="chek-form">
+                                <div class="custome-checkbox">
+                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                    <label class="form-check-label" for="exampleCheckbox3"><span>Don't show this popup again!</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
+</div>-->
+    <!-- End Screen Load Popup Section -->
+
+    <!-- START HEADER -->
+    <header class="header_wrap fixed-top header_with_topbar">
+        <div class="top-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                            <ul class="social_icons social_white text-lg-start">
+                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                                <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end text-md-end">
+                            <ul class="header_list">
+                                <li><a href="compare.php"><i class="ti-control-shuffle"></i><span></span></a></li>
+                                <li><a href="wishlist.php"><i class="ti-heart"></i><span></span></a></li>
+                                <li><a href="account.php"><i class="ti-user"></i><span></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_header dark_skin main_menu_uppercase">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.php">
+                        <img class="logo_light" src="assets/images/logo_dark.png" alt="logo" />
+                        <img class="logo_dark" src="assets/images/logo_dark.png" alt="logo" width="250" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-expanded="false">
+                        <span class="ion-android-menu"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li><a class="nav-link nav_item active" href="index.php">Home</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Handy Craft</a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li><a class="dropdown-item nav-link nav_item" href="jute-crafts.php">Jute
+                                                Crafts</a></li>
+                                        <li><a class="dropdown-item nav-link nav_item" href="wooden-craft.php">Wooden
+                                                Craft</a></li>
+                                        <li><a class="dropdown-item nav-link nav_item"
+                                                href="terracotta.php">Terracotta</a>
+                                        </li>
+                                        <li><a class="dropdown-item nav-link nav_item" href="zari-zardozi.php">Zari
+                                                Zardozi</a></li>
+                                        <li><a class="dropdown-item nav-link nav_item" href="stone-carving.php">Stone
+                                                Carving</a></li>
+                                        <li><a class="dropdown-item nav-link nav_item" href="bamboo-craft.php">Bamboo
+                                                Craft</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Prints</a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li><a class="dropdown-item nav-link nav_item"
+                                                href="block-printed-bag.php">Block
+                                                Printed Bag</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a class="nav-link nav_item" href="about.php">About Us</a></li>
+                            <li><a class="nav-link nav_item" href="blog.php">Blog</a></li>
+                            <li><a class="nav-link nav_item" href="forum.php">Forum</a></li>
+                            <li><a class="nav-link nav_item" href="contact.php">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-nav attr-nav align-items-center">
+                        <li><a href="javascript:;" class="nav-link search_trigger"><i
+                                    class="linearicons-magnifier"></i></a>
+                            <div class="search_wrap">
+                                <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                                <form>
+                                    <input type="text" placeholder="Search" class="form-control" id="search_input">
+                                    <button type="submit" class="search_icon"><i
+                                            class="ion-ios-search-strong"></i></button>
+                                </form>
+                            </div>
+                            <div class="search_overlay"></div>
+                        </li>
+                        <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#"
+                                data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span
+                                    class="cart_count">2</span></a>
+                            <div class="cart_box dropdown-menu dropdown-menu-right">
+                                <ul class="cart_list">
+                                    <li> <a href="#" class="item_remove"><i class="ion-close"></i></a> <a href="#"><img
+                                                src="assets/images/product/Marble-Fruit-Bowl-Bidasar.webp"
+                                                alt="cart_thumb1">Marble Fruit Bowl Bidasar</a> <span
+                                            class="cart_quantity">
+                                            1 x <span class="cart_amount"> <span
+                                                    class="price_symbole">₹</span></span>45.00</span> </li>
+                                    <li> <a href="#" class="item_remove"><i class="ion-close"></i></a> <a href="#"><img
+                                                src="assets/images/product/Notungrams-Wooden-Owl.jpg"
+                                                alt="cart_thumb1">Marble Fruit Bowl Bidasar</a> <span
+                                            class="cart_quantity">
+                                            1 x <span class="cart_amount"> <span
+                                                    class="price_symbole">₹</span></span>45.00</span> </li>
+                                </ul>
+                                <div class="cart_footer">
+                                    <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
+                                                class="price_symbole">₹</span></span>90.00</p>
+                                    <p class="cart_buttons"><a href="cart.php"
+                                            class="btn btn-fill-line rounded-0 view-cart">View Cart</a><a
+                                            href="checkout.php" class="btn btn-fill-out rounded-0 checkout">Checkout</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+    <div class="breadcrumb_section bg_gray page-title-mini">
+        <div class="container"><!-- STRART CONTAINER -->
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-title">
+                        <h1 class="text-white">My Account</h1>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END CONTAINER-->
+    </div>
+    <div class="main_content position-relative" id="bambocraft">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="dashboard_menu">
+                            <ul class="nav nav-tabs flex-column" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"
+                                        role="tab" aria-controls="dashboard" aria-selected="true"><i
+                                            class="ti-layout-grid2"></i>Dashboard</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="orders-tab" data-bs-toggle="tab" href="#orders"
+                                        role="tab" aria-controls="orders" aria-selected="false" tabindex="-1"><i
+                                            class="ti-shopping-cart-full"></i>Orders</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab"
+                                        aria-controls="address" aria-selected="false" tabindex="-1"><i
+                                            class="ti-location-pin"></i>My Address</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
+                                        href="#account-detail" role="tab" aria-controls="account-detail"
+                                        aria-selected="false" tabindex="-1"><i class="ti-id-badge"></i>Account
+                                        details</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="account.php" aria-selected="false" tabindex="-1"
+                                        role="tab"><i class="ti-lock"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="tab-content dashboard_content">
+                            <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Dashboard</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>From your account dashboard. you can easily check &amp; view your <a
+                                                href="javascript:;" onclick="$('#orders-tab').trigger('click')">recent
+                                                orders</a>, manage your <a href="javascript:;"
+                                                onclick="$('#address-tab').trigger('click')">shipping and billing
+                                                addresses</a> and <a href="javascript:;"
+                                                onclick="$('#account-detail-tab').trigger('click')">edit your password
+                                                and account details.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade active show" id="orders" role="tabpanel"
+                                aria-labelledby="orders-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Orders</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Order</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>#1234</td>
+                                                        <td>March 15, 2020</td>
+                                                        <td>Processing</td>
+                                                        <td>$78.00 for 1 item</td>
+                                                        <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>#2366</td>
+                                                        <td>June 20, 2020</td>
+                                                        <td>Completed</td>
+                                                        <td>$81.00 for 1 item</td>
+                                                        <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card mb-3 mb-lg-0">
+                                            <div class="card-header">
+                                                <h3>Billing Address</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora
+                                                    <br>1212
+                                                </address>
+                                                <p>New York</p>
+                                                <a href="#" class="btn btn-fill-out">Edit</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3>Shipping Address</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora
+                                                    <br>1212
+                                                </address>
+                                                <p>New York</p>
+                                                <a href="#" class="btn btn-fill-out">Edit</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="account-detail" role="tabpanel"
+                                aria-labelledby="account-detail-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Account Details</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Already have an account? <a href="#">Log in instead!</a></p>
+                                        <form method="post" name="enq">
+                                            <div class="row">
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>First Name <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="name" type="text">
+                                                </div>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Last Name <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="phone">
+                                                </div>
+                                                <div class="form-group col-md-12 mb-3">
+                                                    <label>Display Name <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="dname" type="text">
+                                                </div>
+                                                <div class="form-group col-md-12 mb-3">
+                                                    <label>Email Address <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="email" type="email">
+                                                </div>
+                                                <div class="form-group col-md-12 mb-3">
+                                                    <label>Current Password <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="password"
+                                                        type="password">
+                                                </div>
+                                                <div class="form-group col-md-12 mb-3">
+                                                    <label>New Password <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="npassword"
+                                                        type="password">
+                                                </div>
+                                                <div class="form-group col-md-12 mb-3">
+                                                    <label>Confirm Password <span class="required">*</span></label>
+                                                    <input required="" class="form-control" name="cpassword"
+                                                        type="password">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-fill-out" name="submit"
+                                                        value="Submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- START FOOTER -->
+    <footer class="footer_dark">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="widget">
+                            <p>M.P. State Co-operative Union Limited Bhopal (Union) is a state level apex co-operative
+                                organization registered under M.P. Co-operative Societies Act dated 25-3-1958 and its
+                                registration number is 4. Its registered head office is located at E-8/77, Shahpura,
+                                Trilanga, Bhopal. The entire state of Madhya Pradesh is covered in the operational area
+                                of the Union.</p>
+                        </div>
+                        <div class="widget">
+                            <ul class="social_icons social_white">
+                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                                <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                                <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h6 class="widget_title">Need Help?</h6>
+                            <ul class="widget_links">
+                                <li><a href="contact.php">Contact Us</a></li>
+                                <li><a href="policy.php">Refund Policy</a></li>
+                                <li><a href="policy.php">Shipping Policy</a></li>
+                                <li><a href="policy.php">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h6 class="widget_title">Quick Links</h6>
+                            <ul class="widget_links">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="about.php">About Us</a></li>
+                                <li><a href="blog.php">Blog</a></li>
+                                <li><a href="forum.php">Forum</a></li>
+                                <li><a href="policy.php">Terms Of Services</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="widget">
+                            <h6 class="widget_title">Handy Craft</h6>
+                            <ul class="widget_links">
+                                <li><a href="#">Artifacts</a></li>
+                                <li><a href="#">Bathware</a></li>
+                                <li><a href="#">Kitchenware</a></li>
+                                <li><a href="#">Figures</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="widget">
+                            <h6 class="widget_title">Contact Info</h6>
+                            <ul class="contact_info contact_info_light">
+                                <li>
+                                    <i class="ti-location-pin"></i>
+                                    <p>Bhopal Madhya Pradesh</p>
+                                </li>
+                                <li>
+                                    <i class="ti-email"></i>
+                                    <a href="mailto:info@handycraft.org">info@handycraft.org</a>
+                                </li>
+                                <li>
+                                    <i class="ti-mobile"></i>
+                                    <p>+91 987 654 3210</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer border-top-tran">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="mb-md-0 text-center ">© 2024 Coopcraft. All rights reserved.</p>
+                        <>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+    <style>
+        .mchatbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 1;
+            position: fixed;
+            bottom: 0px;
+            right: -15px;
+            width: 140px;
+            z-index: 9999;
+        }
+
+        /* The popup chat - hidden by default */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 0px;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .mform-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width textarea */
+        .mform-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+
+        /* When the textarea gets focus, do something */
+        .mform-container textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/send button */
+        .mform-container .mbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .mform-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .mform-container .mbtn:hover,
+        .mchatbtn:hover {
+            opacity: 1;
+        }
+    </style>
+    <button class="open-button mchatbtn" onclick="openForm()"><img src="aichat.png" /></button>
+    <!--
+<div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="mform-container">
+    <h6>Chat</h6>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="mbtn">Send</button>
+    <button type="button" class="mbtn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+-->
+    <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="path/to/your/scripts.js"></script>
+
+
+
+    <!-- Latest jQuery -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- popper min js -->
+
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <!-- magnific-popup min js  -->
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <!-- waypoints min js  -->
+    <script src="assets/js/waypoints.min.js"></script>
+    <!-- parallax js  -->
+    <script src="assets/js/parallax.js"></script>
+    <!-- countdown js  -->
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <!-- imagesloaded js -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope min js -->
+    <script src="assets/js/isotope.min.js"></script>
+    <!-- jquery.dd.min js -->
+    <script src="assets/js/jquery.dd.min.js"></script>
+    <!-- slick js -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- elevatezoom js -->
+    <script src="assets/js/jquery.elevatezoom.js"></script>
+    <!-- scripts js -->
+    <script src="assets/js/scripts.js"></script>
+    <script>
+        $('#owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            dots: false,
+            nav: true,
+            items: 4,
+            navText: ['<i class="ion-ios-arrow-left"></i>', '<i class="ion-ios-arrow-right"></i>'],
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+                    stagePadding: 0,
+                    loop: true,
+                    responsiveClass: true,
+                    dots: false,
+                    nav: true,
+                    autoHeight: true,
+                    items: 2
+                },
+                // breakpoint from 768 up
+                768: {
+                    items: 3
+                }
+            }
+        })
+        $('#tp-sell-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            dots: false,
+            nav: true,
+            items: 4,
+            navText: ['<i class="ion-ios-arrow-left"></i>', '<i class="ion-ios-arrow-right"></i>'],
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+                    stagePadding: 0,
+                    loop: true,
+                    responsiveClass: true,
+                    dots: false,
+                    nav: true,
+                    autoHeight: true,
+                    items: 1
+                },
+                // breakpoint from 768 up
+                768: {
+                    items: 3
+                }
+            }
+        })
+        $('#related-prod-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            dots: false,
+            nav: true,
+            navText: ['<i class="ion-ios-arrow-left"></i>', '<i class="ion-ios-arrow-right"></i>'],
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+                    stagePadding: 0,
+                    loop: true,
+                    responsiveClass: true,
+                    dots: false,
+                    nav: true,
+                    autoHeight: true,
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+        $('#new-arrivals').owlCarousel({
+            loop: true,
+            margin: 30,
+            dots: false,
+            nav: true,
+            items: 4,
+            navText: ['<i class="ion-ios-arrow-left"></i>', '<i class="ion-ios-arrow-right"></i>'],
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+                    stagePadding: 0,
+                    loop: true,
+                    responsiveClass: true,
+                    dots: false,
+                    nav: true,
+                    autoHeight: true,
+                    items: 1
+                },
+                // breakpoint from 768 up
+                768: {
+                    items: 3
+                }
+            }
+        })
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+
+</body>
+
+</html>
